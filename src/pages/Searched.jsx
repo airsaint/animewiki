@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import api from "../api/api";
 import { Box, Heading, Image, Grid } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
+import "./Searched.css";
 
 function Searched() {
   const [searchedAnime, setSearchedAnime] = useState([]);
@@ -34,18 +35,18 @@ function Searched() {
   }, [params.search]);
 
   return (
-    <div className="row">
+    <div className="results--container  ">
       <Heading size="lg" mb="1rem">
         Results
       </Heading>
-      <Grid className="row--posters">
+      <div className="results--grid">
         {searchedAnime.map((anime) => (
           <Box key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
-                className="poster"
+                className="results--poster"
                 _hover={{
-                  transform: "scale(1.05)",
+                  transform: "scale(1.02)",
                   transition: "transform 450ms",
                 }}
                 alt={anime.name}
@@ -61,13 +62,14 @@ function Searched() {
                 as="h5"
                 size="md"
                 noOfLines={2}
+                mb="1.5rem"
               >
                 {anime.title}
               </Heading>
             </Link>
           </Box>
         ))}
-      </Grid>
+      </div>
     </div>
 
     //   <Container maxW="7xl">
