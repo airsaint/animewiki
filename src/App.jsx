@@ -6,12 +6,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Searched from "./pages/Searched";
 import Anime from "./pages/AnimePage";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <ChakraProvider>
+          <Navbar />
           <SearchBar />
           <Routes>
             <Route path="/" element={<Home />} />
