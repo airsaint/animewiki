@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import SearchBar from "./components/SearchBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Searched from "./pages/Searched";
+import Search from "./pages/Search";
 import Anime from "./pages/AnimePage";
 import Navbar from "./components/Navbar";
 
@@ -17,7 +17,7 @@ function App() {
           <SearchBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/searched/:search" element={<Searched />} />
+            <Route path="/search/:search" element={<Search />} />
             <Route path="/anime/:id" element={<Anime />} />
           </Routes>
         </ChakraProvider>

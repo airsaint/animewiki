@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import api from "../api/api";
 import { Box, Heading, Image, Grid } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
-import "./Searched.css";
+import "./Search.css";
+
+const inital = "Monster";
 
 function Searched() {
   const [searchedAnime, setSearchedAnime] = useState([]);

@@ -15,10 +15,11 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Image,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Dashboard", "Projects", "Team"];
+const Links = ["Search", "Team"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -29,7 +30,10 @@ const NavLink = ({ children }) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={"#"}
+    fontSize="2xl"
+    fontWeight="bold"
+    color="#adb5bd"
+    href={`/${children}`}
   >
     {children}
   </Link>
@@ -39,9 +43,14 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+    <div>
+      <Box bg={"#343a40"} px={4}>
+        <Flex
+          bg="#343a40"
+          h={16}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
           <IconButton
             size={"md"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -49,10 +58,20 @@ export default function Navbar() {
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack spacing={8} alignItems={"center"}>
-            <Box>Logo</Box>
+          <HStack bg="#343a40" spacing={8} alignItems={"center"}>
+            <Box as="a" href="/">
+              <Image
+                bg="#343a40"
+                height="1.8rem"
+                w="100%"
+                src="/src/assets/logo.png"
+                alt="logo"
+              />
+            </Box>
             <HStack
+              bg="#343a40"
               as={"nav"}
+              fontSize="lg"
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
@@ -97,8 +116,6 @@ export default function Navbar() {
           </Box>
         ) : null}
       </Box>
-
-      <Box p={4}>Main Content Here</Box>
-    </>
+    </div>
   );
 }
