@@ -1,15 +1,23 @@
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
+import SearchBar from "./components/SearchBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Searched from "./pages/Searched";
+import Anime from "./pages/Anime";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <ChakraProvider>
+          <SearchBar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/searched/:search" element={<Searched />} />
+            <Route path="/anime/:id" element={<Anime />} />
           </Routes>
         </ChakraProvider>
       </BrowserRouter>
