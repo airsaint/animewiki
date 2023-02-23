@@ -4,14 +4,14 @@
 
 .results--grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-column-gap: 4rem;
+  grid-template-columns: repeat(auto-fill, minmax(335px, 1fr));
+  grid-column-gap: 1rem;
   grid-row-gap: 2rem;
   padding: 1rem;
 }
 
 .results--poster {
-  width: 100%;
+  width: 80%;
   height: 40vh;
   object-fit: cover;
   border-radius: 1rem;

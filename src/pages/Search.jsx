@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import { Box, Heading, Image, Grid } from "@chakra-ui/react";
+import { Box, Heading, Image, Container } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 import "./Search.css";
 
@@ -37,7 +37,7 @@ function Searched() {
   }, [params.search]);
 
   return (
-    <div className="results--container  ">
+    <Container p="1rem" minW="8xl">
       <Heading size="lg" mb="1rem">
         Results
       </Heading>
@@ -72,7 +72,7 @@ function Searched() {
           </Box>
         ))}
       </div>
-    </div>
+    </Container>
 
     //   <Container maxW="7xl">
     //     <Heading size="lg" p="1rem" mb="1rem">

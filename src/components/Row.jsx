@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-import { Grid, Box, Heading, Image } from "@chakra-ui/react";
+import { Grid, Box, Heading, Image, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl }) {
@@ -35,7 +35,7 @@ export default function Row({ title, fetchUrl }) {
   //
 
   return (
-    <div className="row">
+    <Container border="1px solid" maxW="9xl" p="1rem">
       <Heading size="lg" mb="1rem">
         {title}
       </Heading>
@@ -69,20 +69,6 @@ export default function Row({ title, fetchUrl }) {
           </Box>
         ))}
       </Grid>
-    </div>
-
-    // <Grid className="row">
-    //   <h2>{title}</h2>
-    //   <div className="row--posters">
-    //     {animes.map((anime) => (
-    //       <img
-    //         className="row--poster"
-    //         key={anime.mal_id}
-    //         alt={anime.name}
-    //         src={anime.images.webp.large_image_url}
-    //       />
-    //     ))}
-    //   </div>
-    // </Grid>
+    </Container>
   );
 }
