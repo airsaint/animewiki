@@ -1,12 +1,11 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { ChakraProvider } from "@chakra-ui/react";
 import SearchBar from "./components/SearchBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Searched from "./pages/Searched";
-import Anime from "./pages/Anime";
+import Anime from "./pages/AnimePage";
 
 function App() {
   return (

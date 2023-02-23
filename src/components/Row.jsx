@@ -1,7 +1,9 @@
+import "./Row.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import { SimpleGrid, Container, Heading, Image } from "@chakra-ui/react";
+
+import { Grid, Box, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl }) {
@@ -33,21 +35,20 @@ export default function Row({ title, fetchUrl }) {
   //
 
   return (
-    <Container p="1.5rem" minW="7xl">
-      <Heading mt="1.5rem" ml="0.8rem" mb="2rem" size="lg">
+    <div className="row">
+      <Heading size="lg" mb="1rem">
         {title}
       </Heading>
-      <SimpleGrid minChildWidth="11rem" spacing={6}>
+      <Grid className="row--posters">
         {animes.map((anime) => (
-          <Container key={anime.mal_id}>
+          <Box key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
+                className="poster"
                 _hover={{
                   transform: "scale(1.05)",
                   transition: "transform 450ms",
                 }}
-                maxH="350px"
-                borderRadius="5px"
                 alt={anime.name}
                 src={anime.images.webp.large_image_url}
               />
@@ -59,16 +60,16 @@ export default function Row({ title, fetchUrl }) {
                 color="#415a77"
                 mt="8px"
                 as="h5"
-                size="s"
+                size="md"
                 noOfLines={2}
               >
                 {anime.title}
               </Heading>
             </Link>
-          </Container>
+          </Box>
         ))}
-      </SimpleGrid>
-    </Container>
+      </Grid>
+    </div>
 
     // <Grid className="row">
     //   <h2>{title}</h2>
