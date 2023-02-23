@@ -16,4 +16,7 @@
   object-fit: cover;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
+  box-shadow: 1px 2px 2px hsla(225, 40%, 4%, 0.333),
+    2px 4px 4px hsl(220deg 60% 50% / 0.333),
+    3px 6px 6px hsl(220deg 60% 50% / 0.333);
 }

@@ -46,7 +46,7 @@ export default function Row({ title, fetchUrl }) {
               <Image
                 className="poster"
                 _hover={{
-                  transform: "scale(1.05)",
+                  transform: "scale(1.02)",
                   transition: "transform 450ms",
                 }}
                 alt={anime.name}
