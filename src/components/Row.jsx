@@ -3,7 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-import { Grid, Box, Heading, Image, Container } from "@chakra-ui/react";
+import { Text, Grid, Box, Heading, Image, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl }) {
@@ -35,13 +35,30 @@ export default function Row({ title, fetchUrl }) {
   //
 
   return (
-    <Container border="1px solid" maxW="9xl" p="1rem">
-      <Heading size="lg" mb="1rem">
+    <Container maxW="10xl">
+      <Text fontWeight="bold" fontSize="2xl" color="#47545D" mb="0.5rem">
         {title}
-      </Heading>
-      <Grid className="row--posters">
+      </Text>
+      <Grid
+        templateColumns={{
+          base: "repeat(2, 1fr)",
+          sm: "repeat(3, 1fr)",
+          md: "repeat(4, 1fr)",
+          lg: "repeat(5, 1fr)",
+        }}
+        gap={4}
+        maxW="1200px"
+        mx="auto"
+        px={{ base: "4", md: "6", lg: "8" }}
+        py={{ base: "4", md: "6", lg: "8" }}
+      >
         {animes.map((anime) => (
-          <Box key={anime.mal_id}>
+          <Box
+            key={anime.mal_id}
+            d="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Link to={`/anime/` + anime.mal_id}>
               <Image
                 className="poster"
@@ -55,12 +72,12 @@ export default function Row({ title, fetchUrl }) {
 
               <Heading
                 _hover={{
-                  color: "#003049",
+                  color: "#C05746",
                 }}
                 color="#415a77"
                 mt="8px"
                 as="h5"
-                size="md"
+                size="sm"
                 noOfLines={2}
               >
                 {anime.title}

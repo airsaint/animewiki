@@ -1,7 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import { Box, Heading, Image, Container } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Image,
+  Container,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 import "./Search.css";
 
@@ -37,13 +44,31 @@ function Searched() {
   }, [params.search]);
 
   return (
-    <Container p="1rem" minW="8xl">
+    <Container maxW="10xl">
       <Heading size="lg" mb="1rem">
         Results
       </Heading>
-      <div className="results--grid">
+      <Grid
+        templateColumns={{
+          base: "repeat(2 1fr)",
+          sm: "repeat(3, 1fr)",
+          md: "repeat(4, 1fr)",
+          lg: "repeat(auto-fit, minmax(5, 1fr))",
+        }}
+        placeContent="center"
+        gap={4}
+        maxW="1200px"
+        mx="auto"
+        px={{ base: "4", md: "6", lg: "8" }}
+        py={{ base: "4", md: "6", lg: "8" }}
+      >
         {searchedAnime.map((anime) => (
-          <Box key={anime.mal_id}>
+          <GridItem
+            d="flex"
+            justifyContent="center"
+            alignItems="center"
+            key={anime.mal_id}
+          >
             <Link to={`/anime/` + anime.mal_id}>
               <Image
                 className="results--poster"
@@ -57,11 +82,11 @@ function Searched() {
 
               <Heading
                 _hover={{
-                  color: "#003049",
+                  color: "#C05746",
                 }}
                 color="#415a77"
-                mt="8px"
-                as="h5"
+                mt="1rem"
+                as="h6"
                 size="md"
                 noOfLines={2}
                 mb="1.5rem"
@@ -69,36 +94,10 @@ function Searched() {
                 {anime.title}
               </Heading>
             </Link>
-          </Box>
+          </GridItem>
         ))}
-      </div>
+      </Grid>
     </Container>
-
-    //   <Container maxW="7xl">
-    //     <Heading size="lg" p="1rem" mb="1rem">
-    //       Results
-    //     </Heading>
-    //     <SimpleGrid minChildWidth="12rem" spacing={6}>
-    //       {searchedAnime.map((anime) => (
-    //         <Container centerContent key={anime.mal_id}>
-    //           <Link to={`/anime/` + anime.mal_id}>
-    //             <Image
-    //               _hover={{
-    //                 transform: "scale(1.05)",
-    //                 transition: "transform 450ms",
-    //               }}
-    //               maxHeight="350px"
-    //               borderRadius="5px"
-    //               alt={anime.name}
-    //               src={anime.images.jpg.large_image_url}
-    //             />
-    //             <Heading color="#415a77" mt="8px" as="h5" size="s" noOfLines={2}>
-    //               {anime.title}
-    //             </Heading>
-    //           </Link>
-    //         </Container>
-    //       ))}
-    //     </SimpleGrid>
   );
 }
 

@@ -19,7 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Search", "Team"];
+const Links = ["Search"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -33,7 +33,7 @@ const NavLink = ({ children }) => (
     fontSize="2xl"
     fontWeight="bold"
     color="#adb5bd"
-    href={`/${children}`}
+    href={`/${children}/kimetsu`}
   >
     {children}
   </Link>
@@ -44,9 +44,9 @@ export default function Navbar() {
 
   return (
     <div>
-      <Box bg={"#343a40"} px={4}>
+      <Box bg={"#232933"} px={4}>
         <Flex
-          bg="#343a40"
+          bg="#232933"
           h={16}
           alignItems={"center"}
           justifyContent={"space-between"}
@@ -58,10 +58,10 @@ export default function Navbar() {
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
           />
-          <HStack bg="#343a40" spacing={8} alignItems={"center"}>
+          <HStack bg="#232933" spacing={8} alignItems={"center"}>
             <Box as="a" href="/">
               <Image
-                bg="#343a40"
+                bg="#232933"
                 height="1.8rem"
                 w="100%"
                 src="/src/assets/logo.png"
@@ -69,7 +69,7 @@ export default function Navbar() {
               />
             </Box>
             <HStack
-              bg="#343a40"
+              bg="#232933"
               as={"nav"}
               fontSize="lg"
               spacing={4}
@@ -80,30 +80,7 @@ export default function Navbar() {
               ))}
             </HStack>
           </HStack>
-          <Flex alignItems={"center"}>
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                <Avatar
-                  size={"sm"}
-                  src={
-                    "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                  }
-                />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
-            </Menu>
-          </Flex>
+          <Flex alignItems={"center"}></Flex>
         </Flex>
 
         {isOpen ? (
