@@ -117,7 +117,7 @@ function Anime() {
           </Box>
           <Box ratio={1}>
             <iframe
-              width="600"
+              width="450"
               height="300"
               src={details.trailer?.embed_url}
               title={details.title}
