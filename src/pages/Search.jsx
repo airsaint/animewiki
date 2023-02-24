@@ -63,11 +63,20 @@ function Searched() {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {searchedAnime.map((anime) => (
-          <GridItem key={anime.mal_id}>
+          <GridItem
+            key={anime.mal_id}
+            d="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Link to={`/anime/` + anime.mal_id}>
               <Image
-                w={{ base: "100%", md: "auto" }}
-                h={{ base: "40vh", md: "auto" }}
+                boxSize={{
+                  base: "80%",
+                  sm: "100px",
+                  md: "300px",
+                  lg: "300px",
+                }}
                 pos="relative"
                 borderRadius="0.5rem"
                 objectFit={"cover"}
@@ -85,9 +94,9 @@ function Searched() {
                   color: "#C05746",
                 }}
                 color="#415a77"
-                mt="1rem"
+                mt="0.5rem"
                 as="h6"
-                size="md"
+                size="sm"
                 noOfLines={2}
                 mb="1.5rem"
               >

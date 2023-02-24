@@ -68,16 +68,15 @@ export default function Row({ title, fetchUrl }) {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {animes.map((anime) => (
-          <GridItem
-            key={anime.mal_id}
-            // d="flex"
-            // justifyContent="center"
-            // alignItems="center"
-          >
+          <GridItem key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
-                w={{ base: "100%", md: "auto" }}
-                h={{ base: "40vh", md: "auto" }}
+                boxSize={{
+                  base: "80%",
+                  sm: "100px",
+                  md: "300px",
+                  lg: "300px",
+                }}
                 pos="relative"
                 borderRadius="0.5rem"
                 objectFit={"cover"}
