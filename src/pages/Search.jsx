@@ -45,13 +45,13 @@ function Searched() {
 
   return (
     <Container maxW="10xl">
-      <Heading size="lg" mb="1rem">
+      <Heading ml="1.5rem" color="#47545D" mt="1.5rem" size="lg" mb="1rem">
         Results
       </Heading>
       <Grid
         templateColumns={{
-          base: "repeat(2 1fr)",
-          sm: "repeat(3, 1fr)",
+          base: "repeat(2, 1fr)",
+          sm: "repeat(2, 1fr)",
           md: "repeat(4, 1fr)",
           lg: "repeat(auto-fit, minmax(5, 1fr))",
         }}
@@ -63,15 +63,15 @@ function Searched() {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {searchedAnime.map((anime) => (
-          <GridItem
-            d="flex"
-            justifyContent="center"
-            alignItems="center"
-            key={anime.mal_id}
-          >
+          <GridItem key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
-                className="results--poster"
+                w={{ base: "100%", md: "auto" }}
+                h={{ base: "40vh", md: "auto" }}
+                pos="relative"
+                borderRadius="0.5rem"
+                objectFit={"cover"}
+                mb="0.5rem"
                 _hover={{
                   transform: "scale(1.02)",
                   transition: "transform 450ms",

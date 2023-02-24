@@ -101,7 +101,7 @@ function Anime() {
               lineHeight={1.1}
               fontWeight={300}
               color="#4F5573"
-              fontSize={{ base: "4xl", sm: "4xl", lg: "6xl" }}
+              fontSize={{ base: "4xl", sm: "4xl", lg: "4xl" }}
             >
               {details.title}{" "}
             </Heading>

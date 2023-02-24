@@ -30,7 +30,7 @@ function SearchBar() {
 
   return (
     <Box
-      mt="1rem"
+      p="1rem"
       maxW={{ base: "100%", md: "720px", lg: "960px", xl: "1200px" }}
       mx="auto"
     >

@@ -3,7 +3,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
 
-import { Text, Grid, Box, Heading, Image, Container } from "@chakra-ui/react";
+import {
+  Text,
+  Grid,
+  Box,
+  Heading,
+  Image,
+  Container,
+  GridItem,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl }) {
@@ -35,17 +43,24 @@ export default function Row({ title, fetchUrl }) {
   //
 
   return (
-    <Container maxW="10xl">
-      <Text fontWeight="bold" fontSize="2xl" color="#47545D" mb="0.5rem">
+    <Container maxW="12xl">
+      <Text
+        ml="1.5rem"
+        mt="2rem"
+        fontWeight="bold"
+        fontSize="2xl"
+        color="#47545D"
+      >
         {title}
       </Text>
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
           sm: "repeat(3, 1fr)",
-          md: "repeat(4, 1fr)",
+          md: "repeat(auto-fit, minmax(5, 1fr))",
           lg: "repeat(5, 1fr)",
         }}
+        placeContent="center"
         gap={4}
         maxW="1200px"
         mx="auto"
@@ -53,15 +68,20 @@ export default function Row({ title, fetchUrl }) {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {animes.map((anime) => (
-          <Box
+          <GridItem
             key={anime.mal_id}
-            d="flex"
-            justifyContent="center"
-            alignItems="center"
+            // d="flex"
+            // justifyContent="center"
+            // alignItems="center"
           >
             <Link to={`/anime/` + anime.mal_id}>
               <Image
-                className="poster"
+                w={{ base: "100%", md: "auto" }}
+                h={{ base: "40vh", md: "auto" }}
+                pos="relative"
+                borderRadius="0.5rem"
+                objectFit={"cover"}
+                mb="0.5rem"
                 _hover={{
                   transform: "scale(1.02)",
                   transition: "transform 450ms",
@@ -83,7 +103,7 @@ export default function Row({ title, fetchUrl }) {
                 {anime.title}
               </Heading>
             </Link>
-          </Box>
+          </GridItem>
         ))}
       </Grid>
     </Container>
