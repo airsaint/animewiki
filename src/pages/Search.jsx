@@ -51,9 +51,9 @@ function Searched() {
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
-          sm: "repeat(2, 1fr)",
-          md: "repeat(4, 1fr)",
-          lg: "repeat(auto-fit, minmax(5, 1fr))",
+          sm: "repeat(3, 1fr)",
+          md: "repeat(auto-fit, minrmax(5, 1fr))",
+          lg: "repeat(5, 1fr)",
         }}
         placeContent="center"
         gap={4}

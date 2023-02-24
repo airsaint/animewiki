@@ -57,7 +57,7 @@ export default function Row({ title, fetchUrl }) {
         templateColumns={{
           base: "repeat(2, 1fr)",
           sm: "repeat(3, 1fr)",
-          md: "repeat(auto-fit, minmax(5, 1fr))",
+          md: "repeat(auto-fit, minrmax(5, 1fr))",
           lg: "repeat(5, 1fr)",
         }}
         placeContent="center"
