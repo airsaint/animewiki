@@ -1,18 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import {
-  Input,
-  InputGroup,
-  Container,
-  Text,
-  InputRightElement,
-  Button,
-  InputRightAddon,
-  Box,
-} from "@chakra-ui/react";
+import { Input, InputGroup, Text, Box } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import { Search2Icon } from "@chakra-ui/icons";
-import api from "../api/api";
 
 function SearchBar() {
   const [input, setInput] = useState("");
