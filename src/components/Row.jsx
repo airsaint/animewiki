@@ -6,7 +6,6 @@ import api from "../api/api";
 import {
   Text,
   Grid,
-  Box,
   Heading,
   Image,
   Container,
@@ -77,12 +76,10 @@ export default function Row({ title, fetchUrl }) {
                   md: "300px",
                   lg: "300px",
                 }}
-                pos="relative"
-                borderRadius="0.5rem"
+                borderRadius="0.4rem"
                 objectFit={"cover"}
-                mb="0.5rem"
                 _hover={{
-                  transform: "scale(1.02)",
+                  transform: "scale(1.03)",
                   transition: "transform 450ms",
                 }}
                 alt={anime.name}
@@ -97,6 +94,7 @@ export default function Row({ title, fetchUrl }) {
                 mt="8px"
                 as="h5"
                 size="sm"
+                alignItems="center"
                 noOfLines={2}
               >
                 {anime.title}

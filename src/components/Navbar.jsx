@@ -84,8 +84,8 @@ export default function Navbar() {
         </Flex>
 
         {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
+          <Box pb={4} display={{ md: "none" }} bg="#232933">
+            <Stack as={"nav"} spacing={4} bg="#232933">
               {Links.map((link) => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
