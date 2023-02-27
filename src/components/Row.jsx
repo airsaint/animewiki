@@ -14,7 +14,7 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Row({ title, fetchUrl }) {
-  const [animes, setAnimes] = useState([]);
+  const [animes, setAnimes] = useState<any[]>([])
 
   const handleTooManyRequests = (error) => {
     if (error.response.status === 429) {
