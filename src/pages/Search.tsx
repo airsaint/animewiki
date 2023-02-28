@@ -10,7 +10,6 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
-import "./Search.css";
 
 function Searched() {
   const [searchedAnime, setSearchedAnime] = useState<Array<any>>([]);

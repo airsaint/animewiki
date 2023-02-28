@@ -26,7 +26,7 @@ const NavLink = ({ children }) => (
     fontSize="2xl"
     fontWeight="bold"
     color="#adb5bd"
-    href={`/${children}/kimetsu`}
+    href={`/${children.toLowerCase()}/kimetsu`}
   >
     {children}
   </Link>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 bg="#232933"
                 height="1.8rem"
                 w="100%"
-                src="/src/assets/logo.png"
+                src="./src/assets/logo.png"
                 alt="logo"
               />
             </Box>

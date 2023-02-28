@@ -1,6 +1,5 @@
 import {
   Box,
-  AspectRatio,
   chakra,
   Container,
   Stack,
@@ -8,7 +7,6 @@ import {
   Image,
   Flex,
   VStack,
-  Button,
   Heading,
   SimpleGrid,
   StatLabel,
@@ -16,9 +14,7 @@ import {
   StatNumber,
   StackDivider,
   useColorModeValue,
-  VisuallyHidden,
   List,
-  Skeleton,
   ListItem,
 } from "@chakra-ui/react";
 import React from "react";
@@ -32,23 +28,22 @@ function Anime() {
 
   const handleTooManyRequests = (error) => {
     if (error.response.status === 429) {
-      return new Promise((resolve) => setTimeout(resolve, 2000));
+      return new Promise((resolve) => setTimeout(resolve, 1500));
     }
 
     return Promise.reject(error);
   };
 
+  const fetchData = async (id) => {
+    try {
+      const result = await api.get(`/anime/${id}`);
+      setDetails(result.data.data);
+    } catch (error) {
+      handleTooManyRequests(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async (id) => {
-      try {
-        const result = await api.get(`/anime/${id}`);
-        setDetails(result.data.data);
-      } catch (error) {
-        handleTooManyRequests(error).then(() => {
-          fetchData();
-        });
-      }
-    };
     fetchData(params.id);
   }, [params.id]);
   // console.log(details.trailer.embed_url);
@@ -63,14 +58,10 @@ function Anime() {
         borderColor={useColorModeValue("#61688C", "#61688C")}
         rounded={"lg"}
       >
-        <StatLabel fontColor={"#61688C"} fontWeight={"medium"} isTruncated>
+        <StatLabel color={"#61688C"} fontWeight={"medium"} isTruncated>
           {title}
         </StatLabel>
-        <StatNumber
-          fontColor={"#61688C"}
-          fontSize={"2xl"}
-          fontWeight={"mesmdium"}
-        >
+        <StatNumber color={"#61688C"} fontSize={"2xl"} fontWeight={"mesmdium"}>
           {stat}
         </StatNumber>
       </Stat>
@@ -89,8 +80,8 @@ function Anime() {
             rounded={"md"}
             alt={details.title}
             src={details.images?.jpg.large_image_url}
-            fit={"cover"}
-            align={"center"}
+            fit={"contain"}
+            align={"top"}
             w={"100%"}
             h={{ base: "100%", sm: "400px", lg: "100%" }}
           />
@@ -142,7 +133,7 @@ function Anime() {
               >
                 Description
               </Text>
-              <Text color={"#61688C"} fontSize={"lg"}>
+              <Text color={"#61688C"} fontSize={{ base: "16px", lg: "18px" }}>
                 {details.synopsis}
               </Text>
             </VStack>
