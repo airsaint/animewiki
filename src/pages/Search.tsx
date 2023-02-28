@@ -1,14 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import {
-  Box,
-  Heading,
-  Image,
-  Container,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
+import { Heading, Image, Container, Grid, GridItem } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 
 function Searched() {
