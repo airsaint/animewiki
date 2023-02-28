@@ -54,10 +54,10 @@ function Searched() {
       >
         {searchedAnime.map((anime) => (
           <GridItem
+            border="1px solid"
             key={anime.mal_id}
             display="flex"
             justifyContent="center"
-            alignItems="center"
           >
             <Link to={`/anime/` + anime.mal_id}>
               <Image
