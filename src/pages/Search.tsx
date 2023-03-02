@@ -53,12 +53,7 @@ function Searched() {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {searchedAnime.map((anime) => (
-          <GridItem
-            border="1px solid"
-            key={anime.mal_id}
-            display="flex"
-            justifyContent="center"
-          >
+          <GridItem key={anime.mal_id} display="flex" justifyContent="center">
             <Link to={`/anime/` + anime.mal_id}>
               <Image
                 boxSize={{
