@@ -53,13 +53,7 @@ export default function Navbar() {
           />
           <HStack bg="#232933" spacing={8} alignItems={"center"}>
             <Box as="a" href="/">
-              <Image
-                bg="#232933"
-                height="1.8rem"
-                w="100%"
-                src="/logo.png"
-                alt="logo"
-              />
+              <Image bg="#232933" height="1rem" n src="/logo.png" alt="logo" />
             </Box>
             <HStack
               bg="#232933"

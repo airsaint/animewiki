@@ -75,7 +75,7 @@ function Anime() {
         spacing={{ base: 8, md: 10 }}
         py={{ base: 18, md: 24 }}
       >
-        <Flex>
+        <VStack>
           <Image
             rounded={"md"}
             alt={details.title}
@@ -83,14 +83,25 @@ function Anime() {
             fit={"contain"}
             align={"top"}
             w={"100%"}
-            h={{ base: "100%", sm: "400px", lg: "100%" }}
+            h={{ base: "50%", sm: "400px", lg: "50%" }}
+            mb="1.5rem"
           />
-        </Flex>
+          <Box ratio={1}>
+            <iframe
+              width="400"
+              height="300"
+              src={details.trailer?.embed_url}
+              title={details.title}
+              allowFullScreen
+            />
+          </Box>
+        </VStack>
         <Stack spacing={{ base: 6, md: 10 }}>
           <Box as={"header"}>
             <Heading
               lineHeight={1.1}
               fontWeight={300}
+              align="center"
               color="#4F5573"
               fontSize={{ base: "4xl", sm: "4xl", lg: "4xl" }}
             >
@@ -101,19 +112,11 @@ function Anime() {
               color={"#4F5573"}
               fontWeight={300}
               fontSize={"lg"}
+              align="center"
             >
               {" Episodes: "}
               {details.episodes || "Ongoing"}
             </Text>
-          </Box>
-          <Box ratio={1}>
-            <iframe
-              width="450"
-              height="300"
-              src={details.trailer?.embed_url}
-              title={details.title}
-              allowFullScreen
-            />
           </Box>
 
           <Stack

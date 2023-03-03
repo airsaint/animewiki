@@ -5,7 +5,7 @@ import { Heading, Image, Container, Grid, GridItem } from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 
 function Searched() {
-  const [searchedAnime, setSearchedAnime] = useState<Array<any>>([]);
+  const [searchedAnime, setSearchedAnime] = useState([]);
   let params = useParams();
 
   const handleTooManyRequests = (error) => {

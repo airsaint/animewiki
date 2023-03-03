@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 
 function Row({ title, fetchUrl }) {
-  const [animes, setAnimes] = useState<Array<any>>([]);
+  const [animes, setAnimes] = useState([]);
 
   const handleTooManyRequests = (error) => {
     if (error.response.status === 429) {
@@ -43,7 +43,7 @@ function Row({ title, fetchUrl }) {
   return (
     <Container maxW="12xl">
       <Text
-        ml="1.5rem"
+        ml="1rem"
         mt="2rem"
         fontWeight="bold"
         fontSize="2xl"
@@ -66,11 +66,11 @@ function Row({ title, fetchUrl }) {
         py={{ base: "4", md: "6", lg: "8" }}
       >
         {animes.map((anime) => (
-          <GridItem key={anime.mal_id}>
+          <GridItem mb="0.75rem" key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
                 boxSize={{
-                  base: "80%",
+                  base: "90%",
                   sm: "100px",
                   md: "300px",
                   lg: "300px",
@@ -92,8 +92,7 @@ function Row({ title, fetchUrl }) {
                 color="#415a77"
                 mt="8px"
                 as="h5"
-                size="sm"
-                alignItems="center"
+                fontSize={["sm", "md"]}
                 noOfLines={2}
               >
                 {anime.title}
