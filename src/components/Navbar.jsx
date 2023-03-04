@@ -52,8 +52,14 @@ export default function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack bg="#232933" spacing={8} alignItems={"center"}>
-            <Box as="a" href="/">
-              <Image bg="#232933" height="1rem" n src="/logo.png" alt="logo" />
+            <Box p="0.5rem" as="a" href="/">
+              <Image
+                bg="#232933"
+                maxWidth="5rem"
+                height="auto"
+                src="/logo.png"
+                alt="logo"
+              />
             </Box>
             <HStack
               bg="#232933"

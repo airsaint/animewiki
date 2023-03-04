@@ -1,7 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import { Heading, Image, Container, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Heading,
+  Image,
+  Container,
+  Grid,
+  GridItem,
+  Select,
+  HStack,
+} from "@chakra-ui/react";
 import { useParams, Link } from "react-router-dom";
 
 function Searched() {
@@ -18,10 +26,10 @@ function Searched() {
   };
 
   useEffect(() => {
-    const fetchData = async (name) => {
+    const fetchData = async (name, year) => {
       try {
         const result = await api.get(
-          `/anime?q=${name}&order_by=popularity&type=tv`
+          `/anime?q=${name}&order_by=popularity&type=tv&year=${year}`
         );
         setSearchedAnime(result.data.data);
       } catch (error) {
@@ -30,14 +38,17 @@ function Searched() {
         });
       }
     };
-    fetchData(params.search);
-  }, [params.search]);
+    fetchData(params.search, params.year);
+  }, [params.search, params.year]);
 
   return (
     <Container maxW="10xl">
-      <Heading ml="1.5rem" color="#47545D" mt="1.5rem" size="lg" mb="1rem">
-        Results
-      </Heading>
+      <HStack>
+        <Heading ml="1.5rem" color="#47545D" mt="1.5rem" size="md" mb="1rem">
+          Results
+        </Heading>
+      </HStack>
+
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
