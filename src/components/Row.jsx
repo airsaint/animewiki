@@ -1,6 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import api from "../api/api";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import api from '../api/api';
 
 import {
   Text,
@@ -9,15 +9,15 @@ import {
   Image,
   Container,
   GridItem,
-} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+} from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 function Row({ title, fetchUrl }) {
   const [animes, setAnimes] = useState([]);
 
   const handleTooManyRequests = (error) => {
     if (error.response.status === 429) {
-      console.log("Too many requests, waiting for a minute...");
+      console.log('Too many requests, waiting for a minute...');
       return new Promise((resolve) => setTimeout(resolve, 2000));
     }
 
@@ -53,33 +53,33 @@ function Row({ title, fetchUrl }) {
       </Text>
       <Grid
         templateColumns={{
-          base: "repeat(2, 1fr)",
-          sm: "repeat(3, 1fr)",
-          md: "repeat(auto-fit, minrmax(5, 1fr))",
-          lg: "repeat(5, 1fr)",
+          base: 'repeat(2, 1fr)',
+          sm: 'repeat(3, 1fr)',
+          md: 'repeat(auto-fit, minrmax(5, 1fr))',
+          lg: 'repeat(5, 1fr)',
         }}
         placeContent="center"
         gap={4}
         maxW="1200px"
         mx="auto"
-        px={{ base: "4", md: "6", lg: "8" }}
-        py={{ base: "4", md: "6", lg: "8" }}
+        px={{ base: '4', md: '6', lg: '8' }}
+        py={{ base: '4', md: '6', lg: '8' }}
       >
         {animes.map((anime) => (
           <GridItem mb="0.75rem" key={anime.mal_id}>
             <Link to={`/anime/` + anime.mal_id}>
               <Image
                 boxSize={{
-                  base: "90%",
-                  sm: "100px",
-                  md: "300px",
-                  lg: "300px",
+                  base: '90%',
+                  sm: '100px',
+                  md: '300px',
+                  lg: '300px',
                 }}
                 borderRadius="0.4rem"
-                objectFit={"cover"}
+                objectFit={'cover'}
                 _hover={{
-                  transform: "scale(1.03)",
-                  transition: "transform 450ms",
+                  transform: 'scale(1.03)',
+                  transition: 'transform 450ms',
                 }}
                 alt={anime.name}
                 src={anime.images.webp.large_image_url}
@@ -87,12 +87,12 @@ function Row({ title, fetchUrl }) {
 
               <Heading
                 _hover={{
-                  color: "#C1C4C7",
+                  color: '#C1C4C7',
                 }}
                 color="#415a77"
                 mt="8px"
                 as="h5"
-                fontSize={["sm", "md"]}
+                fontSize={['sm', 'md']}
                 noOfLines={2}
               >
                 {anime.title}
